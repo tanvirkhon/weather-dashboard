@@ -48,11 +48,16 @@ Weather App Section
     padding: 50px;
 }
 
+.city-data{
+  padding: 30px;
+  margin: 10px;
+}
+
 /*************************************************************
 Weather App Section
 *************************************************************/
 
 #future-forecast{
     background-color: pink;
-    min-height: 40vh;
+    min-height: 20vh;
 }

@@ -4,21 +4,19 @@
 // API KEY
 const weatherAPIKey = "b0b7a5a79a5ad7d55256e7b7b3a2f6ea";
 
-// City Forecast section
 let currentCityForecast = document.getElementById("city-forecast");
-// City Five Day
 let futureCityForecast = document.getElementById("future-forecast");
-// Geo Location required variables
 let city;
-// Input field
 let inputField = document.getElementById("input-field");
-// Button
 const findCityBtn = document.getElementById("search-button");
 
 // Save Cities
 const saveCities = [];
 const getSavedCities = JSON.parse(localStorage.getItem("savedCities"));
 let searchHistory = document.getElementById("search-history");
+
+// Date and time
+const date = new Date().toLocaleDateString();
 
 /************************************************
 Function
@@ -106,8 +104,7 @@ function getLocation(event) {
           //Create Div Container
           let cityInfoDiv = document.createElement("div");
           cityInfoDiv.classList =
-            "flex-row space-x-4 rounded-lg shadow-lg bg-white justify-between";
-
+            "flex-row space-x-4 rounded-lg shadow-lg bg-white justify-between city-data";
           currentCityForecast.appendChild(cityInfoDiv);
 
           // Create City Title
@@ -115,6 +112,12 @@ function getLocation(event) {
           cityNameTitle.classList = "text-5xl font-bold mt-4 mb-6";
           cityNameTitle.append(city);
           cityInfoDiv.appendChild(cityNameTitle);
+
+          // Create Date Time stamp
+          let dateTime = document.createElement("h3");
+          dateTime.classList = "text-4x1 font-bold mt-4 mb-6";
+          dateTime.append(date);
+          cityInfoDiv.appendChild(dateTime);
 
           // Add icon to city
           let iconImg = document.createElement("img");
@@ -138,14 +141,24 @@ function getLocation(event) {
 
           // Forecast 5 Day API Call
           for (let i = 0; i < data.list.length; i += 8) {
+            
             // Open Weather Icon ID
             forecastIconID = data.list[i].weather[0].icon;
             IconURL =
               "http://openweathermap.org/img/w/" + forecastIconID + ".png";
 
+            let newDate = new Date(data.list[i].dt * 1000).toLocaleDateString();
+
             let cityForecastDiv = document.createElement("div");
-            // cityForecastDiv.classList = "flex flex-wrap";
+            cityForecastDiv.classList =
+              "space-x-4 rounded-lg shadow-lg bg-white justify-between city-data";
             futureCityForecast.appendChild(cityForecastDiv);
+
+            // Create Date Time stamp
+            let dateTimeForecast = document.createElement("h4");
+            dateTimeForecast.classList = "text-2x1 font-bold mt-4 mb-6";
+            dateTimeForecast.append(newDate);
+            cityForecastDiv.appendChild(dateTimeForecast);
 
             // Add icon to city
             let forecastIconImg = document.createElement("img");

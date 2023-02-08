@@ -60,7 +60,7 @@ function getLocation(event) {
 
   // Geo Location URL Call
   let geoLocationAPICall =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     city.trim() +
     "&appid=" +
     weatherAPIKey;
@@ -91,7 +91,7 @@ function getLocation(event) {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
+          // console.log(data);
 
           city = data.city.name;
 
@@ -102,7 +102,7 @@ function getLocation(event) {
           // Open Weather Icon ID
           cityWeatherIconID = data.list[0].weather[0].icon;
           openWeatherIconURL =
-            "http://openweathermap.org/img/w/" + cityWeatherIconID + ".png";
+            "https://openweathermap.org/img/w/" + cityWeatherIconID + ".png";
 
           //Create Div Container
           let cityInfoDiv = document.createElement("div");
@@ -146,7 +146,7 @@ function getLocation(event) {
           for (let i = 0; i < data.list.length; i += 8) {
             forecastIconID = data.list[i].weather[0].icon;
             IconURL =
-              "http://openweathermap.org/img/w/" + forecastIconID + ".png";
+              "https://openweathermap.org/img/w/" + forecastIconID + ".png";
 
             let newDate = new Date(data.list[i].dt * 1000).toLocaleDateString();
 

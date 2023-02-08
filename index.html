@@ -8,31 +8,46 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Dashboard App</title>
   </head>
-  <body>
-    <main>
-      <header id="main-header">
-        <h1>Weather Dashboard</h1>
-      </header>
+  <body class="bg-blue-200">
+    <!-- Header -->
+    <header class="mb-5 shadow-lg" id="main-header">
+      <h1 class="text-5xl font-bold mt-4 mb-6 text-blue-500">Weather Dashboard</h1>
+    </header>
 
+    <!-- Main Area-->
+    <main>
       <section id="dashboard-section">
+        <!-- Tailwind Container Div -->
         <div class="grid grid-cols-3 grid-flow-col gap-4">
           <!-- Search Section -->
-          <div class="row-span-3" id="search-section">
-            <div class="search-container flex-wrap">
-              <h2>Search for a City</h2>
-              <input type="search" />
-              <button>Search</button>
-            </div>
-            <div class="flex-wrap">
-              <h2>Search History</h2>
+          <div class="row-span-3 rounded-lg shadow-lg bg-blue-300" id="search-section">
+            <div class="search-container flex-wrap space-y-4 px-4">
+              <h2 class="text-3xl font-bold mt-4 mb-2">Search for a City:</h2>
+              <input
+                id="input-field"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="search" />
+              <button
+                id="search-button"
+                class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 border-b-2 border-blue-500 hover:border-blue-600 rounded w-full">
+                Search
+              </button>
+              <!-- Search History -->
+              <div id="search-history" class="flex-wrap px-3 py-2 space-y-4">
+                <h2>Search History</h2>
+              </div>
             </div>
           </div>
 
           <!-- City Forecast -->
-          <div class="col-span-2" id="city-forecast"></div>
+          <div
+            class="col-span-2 rounded-lg shadow-lg bg-green-300"
+            id="city-forecast"></div>
 
           <!-- Future Forecast -->
-          <div class="row-span-2 col-span-2" id="future-forecast"></div>
+          <div
+            class="row-span-2 col-span-2 flex flex-wrap space-x-4 rounded-lg shadow-lg"
+            id="future-forecast"></div>
         </div>
       </section>
     </main>

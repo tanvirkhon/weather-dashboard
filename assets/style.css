@@ -8,13 +8,17 @@ Whole Document Styling
   scroll-behavior: smooth;
 }
 
+
 /*************************************************************
 Header Section
 *************************************************************/
 #main-header {
   text-align: center;
-  background-color: red;
-  padding: 10px;
+  background-image: url("./img/skyline.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
 }
 
 #main-header h1{
@@ -24,16 +28,14 @@ Header Section
 /*************************************************************
 Weather App Section
 *************************************************************/
-/* #dashboard-section{
-    background-color: blue; 
-} */
+
 
 /*************************************************************
 Search Section 
 *************************************************************/
 
 #search-section{
-    background-color: yellow;
+    display: flex;
 }
 
 /*************************************************************
@@ -41,8 +43,9 @@ Weather App Section
 *************************************************************/
 
 #city-forecast{
-    background-color: green;
-    height: 20vh;
+    display: flex;
+    min-height: 40vh;
+    padding: 50px;
 }
 
 /*************************************************************
@@ -51,5 +54,5 @@ Weather App Section
 
 #future-forecast{
     background-color: pink;
-    height: 30vh;
+    min-height: 40vh;
 }

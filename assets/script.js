@@ -21,18 +21,21 @@ const date = new Date().toLocaleDateString();
 /************************************************
 Function
 ************************************************/
-for (let i = 0; i < getSavedCities.length; i++) {
-  console.log(getSavedCities);
 
-  let cityHistory = document.createElement("button");
-  cityHistory.append(getSavedCities[i]);
-  cityHistory.classList =
-    "flex px-6 py-2 border-4 border-white text-white font-medium text-s leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-full";
-  searchHistory.appendChild(cityHistory);
+// If statement to check if the user has searched for a city before
+if (getSavedCities !== null) {
+  for (let i = 0; i < getSavedCities.length; i++) {
+    console.log(getSavedCities);
+
+    let cityHistory = document.createElement("button");
+    cityHistory.append(getSavedCities[i]);
+    cityHistory.classList =
+      "flex px-6 py-2 border-4 border-white text-white font-medium text-s leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-full";
+    searchHistory.appendChild(cityHistory);
+  }
 }
 
-// List cities already in local storage
-
+//Function to search for a city
 function getLocation(event) {
   event.preventDefault();
 
@@ -141,8 +144,6 @@ function getLocation(event) {
 
           // Forecast 5 Day API Call
           for (let i = 0; i < data.list.length; i += 8) {
-            
-            // Open Weather Icon ID
             forecastIconID = data.list[i].weather[0].icon;
             IconURL =
               "http://openweathermap.org/img/w/" + forecastIconID + ".png";

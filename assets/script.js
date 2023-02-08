@@ -23,7 +23,7 @@ Function
 ************************************************/
 
 // If statement to check if the user has searched for a city before
-if (getSavedCities !== null) {
+if (getSavedCities) {
   for (let i = 0; i < getSavedCities.length; i++) {
     console.log(getSavedCities);
 
